@@ -264,4 +264,27 @@ function ready(error, world, names) {
 queue()
     .defer(d3.json, "world-110m.json")
     .defer(d3.tsv, "world-country-names.tsv")
-    .await(ready);
+    .await(function(e,w,n){
+        var e=e,w=w,n=n;
+        var elStart = document.querySelector('#startc');
+        elStart.addEventListener("change",function(event){
+            console.log(event);
+            window.j = event;
+            startCountry =event.target.value;
+            
+        });
+
+        var elEnd = document.querySelector('#endc');
+        elEnd.addEventListener("change",function(event){
+            console.log(event);
+            window.j = event;
+            endCountry =event.target.value;
+            
+        });
+
+        var goEl = document.querySelector('#go');
+
+        goEl.addEventListener('click',function(){
+            ready(e,w,n);
+        });
+    });
