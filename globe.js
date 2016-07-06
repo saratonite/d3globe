@@ -1,3 +1,4 @@
+/* D3 Globe*/
 var width = 600,
     height = 600;
 
